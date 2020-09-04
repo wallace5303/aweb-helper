@@ -1,0 +1,44 @@
+{
+    "current_page": 1,
+    "data": [
+        {
+            "mid": 4,
+            "uid": 10000002,
+            "username": "test2",
+            "avatar": "https://i.loli.net/2020/08/27/zwu6NoZi7tIWKLx.png",
+            "msg": "求一个在线工具",
+            "created_at": "2020-08-27 18:53:19"
+        },
+        {
+            "mid": 3,
+            "uid": 10000001,
+            "username": "test1",
+            "avatar": "https://i.loli.net/2020/08/27/UJiCFAqSkuPr2HZ.jpg",
+            "msg": "推荐一个 www.mi.com",
+            "created_at": "2020-08-27 18:52:02"
+        },
+        {
+            "mid": 2,
+            "uid": 10000001,
+            "username": "test1",
+            "avatar": "https://i.loli.net/2020/08/27/qQH4wNca5vPigMu.jpg",
+            "msg": "什么也没有",
+            "created_at": "2020-08-27 18:45:52"
+        },
+        {
+            "mid": 1,
+            "uid": 10000001,
+            "username": "test1",
+            "avatar": "https://i.loli.net/2020/08/27/Uk91GdFxXgYLC2S.jpg",
+            "msg": "一个搜索网站：www.baidu.com",
+            "created_at": "2020-08-27 18:44:06"
+        }
+    ],
+    "first_page_url": "http://kaka996-php.local.com/api/box/message/list?page=1",
+    "from": 1,
+    "next_page_url": null,
+    "path": "http://kaka996-php.local.com/api/box/message/list",
+    "per_page": 10,
+    "prev_page_url": null,
+    "to": 4
+}

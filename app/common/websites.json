@@ -1,0 +1,284 @@
+{
+    "list": {
+        "wtid_4": {
+            "wtid": 4,
+            "type": "综合娱乐",
+            "name": "fun",
+            "children": {
+                "wtid_34": {
+                    "wtid": 34,
+                    "type": "搜索",
+                    "name": "search",
+                    "list": [
+                        {
+                            "wsid": 237,
+                            "name": "搜白度盘",
+                            "url": "http://www.sobaidupan.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 239,
+                            "name": "小白盘",
+                            "url": "https://www.xiaobaipan.com",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 240,
+                            "name": "soohub",
+                            "url": "https://www.soohub.com",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 241,
+                            "name": "鸠摩搜书",
+                            "url": "https://www.jiumodiary.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 236,
+                            "name": "百度",
+                            "url": "https://www.baidu.com",
+                            "status": 1,
+                            "sort": 0
+                        }
+                    ]
+                },
+                "wtid_35": {
+                    "wtid": 35,
+                    "type": "影视",
+                    "name": "tv",
+                    "list": [
+                        {
+                            "wsid": 256,
+                            "name": "美剧天堂",
+                            "url": "https://www.meijutt.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 248,
+                            "name": "源芳影院",
+                            "url": "http://www.yuanfangmov.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 244,
+                            "name": "腾讯视频",
+                            "url": "https://v.qq.com",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 245,
+                            "name": "爱奇艺",
+                            "url": "http://www.iqiyi.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 246,
+                            "name": "优酷",
+                            "url": "https://youku.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 247,
+                            "name": "人人视频",
+                            "url": "http://www.zmz2019.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 249,
+                            "name": "一只大榴莲",
+                            "url": "http://www.llduang.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 250,
+                            "name": "追美剧",
+                            "url": "http://www.anzhuotan.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 251,
+                            "name": "阳光电影",
+                            "url": "http://www.ygdy8.net/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 252,
+                            "name": "电影天堂",
+                            "url": "https://www.dy2018.com/index.html",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 253,
+                            "name": "80s电影",
+                            "url": "http://www.80la.cc/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 254,
+                            "name": "迅播影视",
+                            "url": "http://www.2tu.cc/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 255,
+                            "name": "天天美剧",
+                            "url": "http://www.ttmeiju.me/",
+                            "status": 1,
+                            "sort": 0
+                        }
+                    ]
+                },
+                "wtid_36": {
+                    "wtid": 36,
+                    "type": "购物",
+                    "name": "shop",
+                    "list": [
+                        {
+                            "wsid": 257,
+                            "name": "淘宝",
+                            "url": "https://www.taobao.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 258,
+                            "name": "天猫",
+                            "url": "https://www.tmall.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 259,
+                            "name": "京东",
+                            "url": "https://www.jd.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 260,
+                            "name": "网易严选",
+                            "url": "http://you.163.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 261,
+                            "name": "苏宁易购",
+                            "url": "https://www.suning.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 262,
+                            "name": "聚划算",
+                            "url": "https://www.juhuasuan.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 263,
+                            "name": "小米商城",
+                            "url": "https://www.mi.com/",
+                            "status": 1,
+                            "sort": 0
+                        }
+                    ]
+                },
+                "wtid_37": {
+                    "wtid": 37,
+                    "type": "体育直播",
+                    "name": "sports_live",
+                    "list": [
+                        {
+                            "wsid": 265,
+                            "name": "新浪体育",
+                            "url": "http://sports.sina.com.cn/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 264,
+                            "name": "直播吧",
+                            "url": "https://www.zhibo8.cc/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 266,
+                            "name": "网易体育",
+                            "url": "https://sports.163.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 267,
+                            "name": "QQ体育",
+                            "url": "https://sports.qq.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 268,
+                            "name": "无插件直播",
+                            "url": "http://www.wuchajian.net/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 269,
+                            "name": "jrs直播",
+                            "url": "http://www.jrszhibo.net/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 270,
+                            "name": "4800TV",
+                            "url": "http://www.4800.tv/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 271,
+                            "name": "英超直播吧",
+                            "url": "http://www.yczbb.tv/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 272,
+                            "name": "虎扑",
+                            "url": "https://www.hupu.com/",
+                            "status": 1,
+                            "sort": 0
+                        },
+                        {
+                            "wsid": 273,
+                            "name": "搜狐体育",
+                            "url": "http://sports.sohu.com/",
+                            "status": 1,
+                            "sort": 0
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
