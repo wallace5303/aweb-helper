@@ -83,7 +83,8 @@ async function startServer (options) {
   startRes = await eggLauncher.start(params).then((res) => res, (err) => err)
   GLOGGER.info('startRes:', startRes);
   if (startRes === 'success') {
-    let url = 'http://localhost:' + options.eggPort + '/public/index.html'
+    //let url = 'http://localhost:' + options.eggPort + '/index.html'
+    let url = 'http://localhost:' + options.eggPort
     MAIN_WINDOW.loadURL(url)
     return
   }
