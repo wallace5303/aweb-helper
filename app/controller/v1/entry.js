@@ -36,13 +36,7 @@ class LoginController extends BaseController {
     const params = {
       out_url: 'register',
       method: 'POST',
-      data: {
-        app: 'box',
-        username: body.username,
-        email: body.email,
-        pwd1: body.pwd1,
-        pwd2: body.pwd2,
-      },
+      data: body,
     };
     const userRes = await service.outapi.api(params);
     self.sendData(userRes);
@@ -59,11 +53,7 @@ class LoginController extends BaseController {
     const params = {
       out_url: 'login',
       method: 'POST',
-      data: {
-        app: 'box',
-        username: body.username,
-        pwd: body.pwd,
-      },
+      data: body,
     };
     const data = await service.outapi.api(params);
     self.sendData(data);
