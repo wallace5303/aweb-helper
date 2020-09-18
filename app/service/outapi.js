@@ -25,13 +25,16 @@ class OutapiService extends BaseService {
         timeout: 15000,
       });
       const result = response.data;
+      if (this.app.config.env === 'local') {
+        this.app.logger.info('[OutapiService] [api]: info result:%j', result);
+      }
       // this.app.logger.info('[OutapiService] [api]: result:%j', result);
       if (result.code !== CODE.SUCCESS) {
-        this.app.logger.error('[OutapiService] [api]: error result:%j', result);
+        this.app.logger.error('[OutapiService] [api]: res error result:%j', result);
       }
       return result;
     } catch (e) {
-      this.app.logger.error('[OutapiService] [api]: error ', e);
+      this.app.logger.error('[OutapiService] [api]:  ERROR ', e);
     }
 
     return res;

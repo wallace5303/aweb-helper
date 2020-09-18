@@ -10,12 +10,29 @@ class BoxController extends BaseController {
    */
   async index() {
     const { app, ctx, service } = this;
-
+    console.log('env:', app.config.env);
     const data = {
         user: null
     };
 
     await ctx.render('index.ejs', data);
+  }
+
+  /*
+   * webSites
+   */
+  async webSites() {
+    const self = this;
+    const { app, ctx, service } = this;
+    const query = ctx.query;
+
+    const params = {
+      out_url: 'webSites',
+      method: 'GET',
+      data: query,
+    };
+    const data = await service.outapi.api(params);
+    self.sendData(data);
   }
 
   /*
