@@ -19,6 +19,24 @@ class BoxController extends BaseController {
   }
 
   /*
+   * outApi
+   */
+  async outApi() {
+    const self = this;
+    const { app, ctx, service } = this;
+    const body = ctx.request.body;
+
+    console.log("out_api body:", body);
+    const params = {
+      out_url: body.out_url,
+      method: body.method,
+      data: body.data,
+    };
+    const data = await service.outapi.api(params);
+    self.sendData(data);
+  }
+
+  /*
    * webSites
    */
   async webSites() {
