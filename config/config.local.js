@@ -7,8 +7,9 @@
 exports.outApi = {
   login: 'http://kaka996-php.local.com/api/box/login',
   register: 'http://kaka996-php.local.com/api/box/register',
+  userinfo: 'http://kaka996-php.local.com/api/box/user/info',
   allWebSites: 'http://kaka996-php.local.com/api/box/web/allSites',
-  webSites: 'http://kaka996-php.local.com/api/box/web/sites',
+  mySites: 'http://kaka996-php.local.com/api/box/web/mySites',
   messageList: 'http://kaka996-php.local.com/api/box/message/list',
   messageSend: 'http://kaka996-php.local.com/api/box/message/send',
   saveSite: 'http://kaka996-php.local.com/api/box/web/saveSite',
