@@ -13,6 +13,8 @@ exports.outApi = {
   messageList: 'http://kaka996-php.local.com/api/box/message/list',
   messageSend: 'http://kaka996-php.local.com/api/box/message/send',
   saveSite: 'http://kaka996-php.local.com/api/box/web/saveSite',
+  feedList: 'http://kaka996-php.local.com/api/box/feed/list',
+  feedSend: 'http://kaka996-php.local.com/api/box/feed/send',
 };
 exports.logger = {
   dir: './logs/local',
