@@ -15,6 +15,7 @@ exports.outApi = {
   saveSite: 'http://kaka996-php.local.com/api/box/web/saveSite',
   feedList: 'http://kaka996-php.local.com/api/box/feed/list',
   feedSend: 'http://kaka996-php.local.com/api/box/feed/send',
+  dataIncr: 'http://kaka996-php.local.com/api/box/data/incr',
 };
 exports.logger = {
   dir: './logs/local',
