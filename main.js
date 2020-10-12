@@ -2,7 +2,7 @@ require('update-electron-app')({
   logger: require('electron-log')
 })
 
-const {app, BrowserWindow, Menu} = require('electron')
+const {app, BrowserWindow, Menu, shell} = require('electron')
 const path = require('path')
 const glob = require('glob')
 const getPort = require('get-port')
@@ -32,6 +32,13 @@ GLOGGER.info('options', options);
 if (process.mas) app.setName('box')
 
 global.MAIN_WINDOW = null
+
+app.on('web-contents-created', (e, webContents) => {
+    webContents.on('new-window', (event, url) => {
+        event.preventDefault();
+        shell.openExternal(url);
+    });
+});
 
 async function createWindow () {
   MAIN_WINDOW = new BrowserWindow({
