@@ -16,7 +16,7 @@ exports.outApi = {
   messageSend: 'http://kaka996-php.local.com/api/box/message/send',
   saveSite: 'http://kaka996-php.local.com/api/box/web/saveSite',
   myTypes: 'http://kaka996-php.local.com/api/box/web/myTypes',
-  myTypesAdd: 'http://kaka996-php.local.com/api/box/web/myTypesAdd',
+  myTypesSave: 'http://kaka996-php.local.com/api/box/web/myTypesSave',
   myTypesDel: 'http://kaka996-php.local.com/api/box/web/myTypesDel',
   feedList: 'http://kaka996-php.local.com/api/box/feed/list',
   feedSend: 'http://kaka996-php.local.com/api/box/feed/send',
