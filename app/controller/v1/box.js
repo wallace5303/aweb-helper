@@ -25,15 +25,35 @@ class BoxController extends BaseController {
     const self = this;
     const { app, ctx, service } = this;
     const body = ctx.request.body;
-
     console.log("out_api body:", body);
+    let result = {
+      "succ":true,
+      "code":0,
+      "message":"",
+      "data":[],
+      "timestamp":0
+    }
+    const beforeDealRes = await service.outapi.beforeDeal(body);
+    if (!beforeDealRes.next) {
+      result.message = beforeDealRes.message;
+      result.code = -1000;
+      self.sendData(result);
+      return
+    }
+
     const params = {
       out_url: body.out_url,
       method: body.method,
       data: body.data,
     };
-    const data = await service.outapi.api(params);
-    self.sendData(data);
+    // 如果可以异步
+    if (beforeDealRes.async) {
+      service.outapi.api(params);
+    } else {
+      result = await service.outapi.api(params);
+    }
+    
+    self.sendData(result);
   }
 
   /*

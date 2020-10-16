@@ -39,6 +39,37 @@ class OutapiService extends BaseService {
 
     return res;
   }
+
+  /*
+   * beforeDeal
+   */
+  async beforeDeal(body) {
+    let res = {
+      next: true,
+      async: false,
+      message: ''
+    };
+    switch (body.out_url) {
+      case 'dataIncr' :
+        res = this.beforeDataIncr(res, body.data);
+        break;
+    }
+
+    return res;
+  }  
+
+  async beforeDataIncr(res, data) {
+    const opRes = await this.service.lowdb.getFeedActionLog(data.uid, data.type, data.fid);
+    if (opRes) {
+      res.next = false;
+      res.message = 'beforeDataIncr already cache';
+      return res;
+    }
+    res.async = true;
+    this.service.lowdb.setFeedAction(data.uid, data.type, data.fid);
+
+    return res;
+  }
 }
 
 module.exports = OutapiService;

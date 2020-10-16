@@ -4,6 +4,8 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
+const readline = require('readline');
+const net = require('net');
 
 exports = module.exports;
 
@@ -173,7 +175,7 @@ exports.mkdir = function(dirpath, dirname) {
   console.log('==> dir end', dirpath);
 };
 
-/**
+/*
  * 获取目录下指定后缀的所有文件
  * @param dir
  * @param ext
@@ -202,6 +204,66 @@ exports.getAllFiles = function(dir, ext) {
   return extFiles;
 };
 
+/*
+ * 获取目录下所有文件夹
+ */
+exports.getDirs = function(dir) {
+  if (!dir) {
+    return [];
+  }
+
+  const components = [];
+  const files = fs.readdirSync(dir);
+  files.forEach(function(item, index) {
+    const stat = fs.lstatSync(dir + '/' + item);
+    if (stat.isDirectory() === true) {
+      components.push(item);
+    }
+  });
+
+  return components;
+};
+
+exports.fileExist = function(filePath) {
+  try {
+    return fs.statSync(filePath).isFile();
+  } catch (err) {
+    return false;
+  }
+};
+
+exports.delDir = function(path) {
+  let files = [];
+  if (fs.existsSync(path)) {
+    files = fs.readdirSync(path);
+    files.forEach((file, index) => {
+      const curPath = path + '/' + file;
+      if (fs.statSync(curPath).isDirectory()) {
+        this.delDir(curPath); // 递归删除文件夹
+      } else {
+        fs.unlinkSync(curPath); // 删除文件
+      }
+    });
+    fs.rmdirSync(path);
+  }
+};
+
+exports.chmodPath = function(path, mode) {
+  let files = [];
+  if (fs.existsSync(path)) {
+    files = fs.readdirSync(path);
+    files.forEach((file, index) => {
+      const curPath = path + '/' + file;
+      if (fs.statSync(curPath).isDirectory()) {
+        this.chmodPath(curPath, mode); // 递归删除文件夹
+      } else {
+        fs.chmodSync(curPath, mode);
+      }
+    });
+    fs.chmodSync(path, mode);
+  }
+};
+
 /**
  * 判断是否是同一天
  * @param d1
@@ -216,7 +278,7 @@ exports.isSameDay = function(d1, d2) {
   );
 };
 
-/**
+/*
  * 判断是否在有效期
  */
 exports.isInDate = function(createDate, days) {
@@ -224,7 +286,7 @@ exports.isInDate = function(createDate, days) {
   return diffDays <= days;
 };
 
-/**
+/*
  * differ days
  * 返回两个日期相隔的天数
  * 按0点算
@@ -237,7 +299,7 @@ exports.diffDays = function(createDate) {
   return (tmp - createDate) / 24 / 3600000;
 };
 
-/**
+/*
  * differ weeks
  * 判断两个日期是否在同一周
  * add by mumu
@@ -321,5 +383,119 @@ exports.sleep = function(time = 0) {
     setTimeout(() => {
       resolve();
     }, time);
+  });
+};
+
+/*
+ * 按行读取文件内容
+ * 返回：字符串数组
+ * 参数：fReadName:文件名路径
+ */
+exports.readFileToArr = async function(fReadName) {
+  const fRead = fs.createReadStream(fReadName);
+  const objReadline = readline.createInterface({
+    input: fRead,
+  });
+
+  return new Promise((resolve, reject) => {
+    const arr = [];
+    objReadline.on('line', function(line) {
+      arr.push(line);
+    });
+    objReadline.on('close', function() {
+      resolve(arr);
+    });
+  });
+};
+
+exports.compareVersion = function(version, bigVersion) {
+  version = version.split('.');
+  bigVersion = bigVersion.split('.');
+  for (let i = 0; i < version.length; i++) {
+    version[i] = +version[i];
+    bigVersion[i] = +bigVersion[i];
+    if (version[i] > bigVersion[i]) {
+      return false;
+    } else if (version[i] < bigVersion[i]) {
+      return true;
+    }
+  }
+  return false;
+};
+
+exports.handleVersion = function(version) {
+  if (!version) return version;
+  version = version + '';
+  if (version[0] === 'v') {
+    return version.substr(1);
+  }
+  return version;
+};
+
+/*
+ * 获取本机IP地址
+ */
+exports.getIPAddress = function() {
+  const interfaces = require('os').networkInterfaces();
+  for (const devName in interfaces) {
+    const iface = interfaces[devName];
+    for (let i = 0; i < iface.length; i++) {
+      const alias = iface[i];
+      if (
+        alias.family === 'IPv4' &&
+        alias.address !== '127.0.0.1' &&
+        !alias.internal
+      ) {
+        return alias.address;
+      }
+    }
+  }
+};
+
+/*
+ * 判断IP是否在同一网段
+ */
+exports.isEqualIPAddress = function (addr1, addr2, mask = '255.255.255.0'){
+  if(!addr1 || !addr2 || !mask){
+    console.log("各参数不能为空");
+    return false;
+  }
+  var 
+  res1 = [],
+  res2 = [];
+  addr1 = addr1.split(".");
+  addr2 = addr2.split(".");
+  mask  = mask.split(".");
+  for(var i = 0,ilen = addr1.length; i < ilen ; i += 1){
+    res1.push(parseInt(addr1[i]) & parseInt(mask[i]));
+    res2.push(parseInt(addr2[i]) & parseInt(mask[i]));
+  }
+  if(res1.join(".") == res2.join(".")){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+/*
+ * 端口是否被占用
+ */
+exports.portIsOccupied = function portIsOccupied(port) {
+  const server = net.createServer().listen(port, '0.0.0.0');
+  return new Promise((resolve, reject) => {
+    server.on('listening', () => {
+      console.log(`the server is runnint on port ${port}`);
+      server.close();
+      resolve(false);
+    });
+
+    server.on('error', err => {
+      if (err.code === 'EADDRINUSE') {
+        resolve(true);
+        console.log(`this port ${port} is occupied.try another.`);
+      } else {
+        resolve(true);
+      }
+    });
   });
 };
