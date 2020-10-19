@@ -49,6 +49,30 @@ class LowdbService extends BaseService {
   
       return res;
   }
+
+  async getKv(key) {
+    const res = this.fileSyncInstance()
+      .get('kv.' + key)
+      .value();
+
+    return res;
+  }
+
+  async setKv(key, data) {
+      const res = this.fileSyncInstance()
+        .set('kv.' + key, data)
+        .write();
+  
+      return res;
+  }
+
+  async delKv(key) {
+    const res = this.fileSyncInstance()
+      .unset('kv.' + key)
+      .write();
+
+    return res;
+  }
 }
 
 module.exports = LowdbService;

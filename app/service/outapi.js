@@ -2,6 +2,7 @@
 
 const BaseService = require('./base');
 const _ = require('lodash');
+const { md5 } = require('../utils/utils');
 
 class OutapiService extends BaseService {
   /*
@@ -47,21 +48,28 @@ class OutapiService extends BaseService {
     let res = {
       next: true,
       async: false,
-      message: ''
+      code: 0,
+      message: '',
+      data: null
     };
     switch (body.out_url) {
       case 'dataIncr' :
-        res = this.beforeDataIncr(res, body.data);
+        res = this.beforeDataIncr(res, body);
         break;
+      case 'mySites' :
+          res = this.beforeMySites(res, body);
+          break;  
     }
 
     return res;
   }  
 
-  async beforeDataIncr(res, data) {
+  async beforeDataIncr(res, body) {
+    const data = body.data;
     const opRes = await this.service.lowdb.getFeedActionLog(data.uid, data.type, data.fid);
     if (opRes) {
       res.next = false;
+      res.code = -1000;
       res.message = 'beforeDataIncr already cache';
       return res;
     }
@@ -69,6 +77,57 @@ class OutapiService extends BaseService {
     this.service.lowdb.setFeedAction(data.uid, data.type, data.fid);
 
     return res;
+  }
+
+  async beforeMySites(res, body) {
+    const key = md5(JSON.stringify(body))
+    console.log('key', key)
+    const sitesRes = await this.service.lowdb.getKv(body.out_url);
+    if (sitesRes) {
+      res.next = false;
+      res.message = body.out_url + ' already cache';
+      res.data = sitesRes;
+      return res;
+    }
+
+    return res;
+  }
+
+  /*
+   * afterDeal
+   */
+  async afterDeal(body, result) {
+    switch (body.out_url) {
+      case 'mySites' :
+        result = this.afterMySites(body, result);
+        break;
+      case 'saveMySite' :
+        result = this.afterSaveMySite(body, result);
+        break;
+      case 'delMySite' :
+        result = this.afterDelMySite(body, result);
+        break;
+    }
+
+    return result;
+  }  
+
+  async afterMySites(body, result) {
+    this.service.lowdb.setKv(body.out_url, result.data);
+
+    return result;
+  }
+
+  async afterSaveMySite(body, result) {
+    this.service.lowdb.delKv('mySites');
+
+    return result;
+  }
+
+  async afterDelMySite(body, result) {
+    this.service.lowdb.delKv('mySites');
+
+    return result;
   }
 }
 

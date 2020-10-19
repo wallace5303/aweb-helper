@@ -35,8 +35,10 @@ class BoxController extends BaseController {
     }
     const beforeDealRes = await service.outapi.beforeDeal(body);
     if (!beforeDealRes.next) {
+      // console.log("beforeDealRes:", beforeDealRes);
       result.message = beforeDealRes.message;
-      result.code = -1000;
+      result.code = beforeDealRes.code;
+      result.data = beforeDealRes.data;
       self.sendData(result);
       return
     }
@@ -52,6 +54,7 @@ class BoxController extends BaseController {
     } else {
       result = await service.outapi.api(params);
     }
+    result = await service.outapi.afterDeal(body, result);
     
     self.sendData(result);
   }

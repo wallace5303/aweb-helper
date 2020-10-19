@@ -14,7 +14,7 @@ exports.outApi = {
   mySites: 'http://kaka996-php.local.com/api/box/web/mySites',
   messageList: 'http://kaka996-php.local.com/api/box/message/list',
   messageSend: 'http://kaka996-php.local.com/api/box/message/send',
-  saveSite: 'http://kaka996-php.local.com/api/box/web/saveSite',
+  saveMySite: 'http://kaka996-php.local.com/api/box/web/saveMySite',
   myTypes: 'http://kaka996-php.local.com/api/box/web/myTypes',
   myTypesSave: 'http://kaka996-php.local.com/api/box/web/myTypesSave',
   myTypesDel: 'http://kaka996-php.local.com/api/box/web/myTypesDel',
@@ -22,7 +22,7 @@ exports.outApi = {
   feedSend: 'http://kaka996-php.local.com/api/box/feed/send',
   dataIncr: 'http://kaka996-php.local.com/api/box/data/incr',
   manageUserSite: 'http://kaka996-php.local.com/api/box/manage/userSite',
-  delUserSite: 'http://kaka996-php.local.com/api/box/web/delSite',
+  delMySite: 'http://kaka996-php.local.com/api/box/web/delMySite',
 };
 exports.logger = {
   dir: './logs/local',
