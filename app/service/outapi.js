@@ -80,12 +80,11 @@ class OutapiService extends BaseService {
   }
 
   async beforeMySites(res, body) {
-    const key = md5(JSON.stringify(body))
-    console.log('key', key)
-    const sitesRes = await this.service.lowdb.getKv(body.out_url);
+    const key = 'mySites_category_' + body.data.category;
+    const sitesRes = await this.service.lowdb.getKv(key);
     if (sitesRes) {
       res.next = false;
-      res.message = body.out_url + ' already cache';
+      res.message = 'already cache';
       res.data = sitesRes;
       return res;
     }
@@ -113,19 +112,22 @@ class OutapiService extends BaseService {
   }  
 
   async afterMySites(body, result) {
-    this.service.lowdb.setKv(body.out_url, result.data);
+    const key = 'mySites_category_' + body.data.category;
+    this.service.lowdb.setKv(key, result.data);
 
     return result;
   }
 
   async afterSaveMySite(body, result) {
-    this.service.lowdb.delKv('mySites');
+    const key = 'mySites_category_' + body.data.category;
+    this.service.lowdb.delKv(key);
 
     return result;
   }
 
   async afterDelMySite(body, result) {
-    this.service.lowdb.delKv('mySites');
+    const key = 'mySites_category_' + body.data.category;
+    this.service.lowdb.delKv(key);
 
     return result;
   }
