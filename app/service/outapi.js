@@ -3,6 +3,7 @@
 const BaseService = require('./base');
 const _ = require('lodash');
 const { md5 } = require('../utils/utils');
+const fs = require('fs');
 
 class OutapiService extends BaseService {
   /*
@@ -106,14 +107,30 @@ class OutapiService extends BaseService {
       case 'delMySite' :
         result = this.afterDelMySite(body, result);
         break;
+      case 'allWebSites' :
+        result = this.afterAllWebSites(body, result);
+        break;  
     }
 
     return result;
   }  
 
   async afterMySites(body, result) {
-    const key = 'mySites_category_' + body.data.category;
-    this.service.lowdb.setKv(key, result.data);
+    let data = result.data;
+    if (_.isObject(data)) {
+      for (let i in data) {
+        let webArr = data[i];
+        for (let m in webArr) {
+          let one = webArr[m];
+          const file =  './app/public/logo/' + one.logo;
+          if (fs.existsSync(file)) {
+            one.img = './logo/' + one.logo;
+          }
+        }
+      }
+    }
+    // const key = 'mySites_category_' + body.data.category;
+    // this.service.lowdb.setKv(key, result.data);
 
     return result;
   }
@@ -128,6 +145,21 @@ class OutapiService extends BaseService {
   async afterDelMySite(body, result) {
     const key = 'mySites_category_' + body.data.category;
     this.service.lowdb.delKv(key);
+
+    return result;
+  }
+
+  async afterAllWebSites(body, result) {
+    let data = result.data.list.data;
+    if (data.length > 0) {
+      for (let i in data) {
+        let one = data[i];
+        const file =  './app/public/logo/' + one.logo;
+        if (fs.existsSync(file)) {
+          one.img = './logo/' + one.logo;
+        }
+      }
+    }
 
     return result;
   }
