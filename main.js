@@ -62,7 +62,7 @@ async function createWindow () {
   // }
 
   if (options.env !== 'prod') {
-    MAIN_WINDOW.webContents.openDevTools()
+    // MAIN_WINDOW.webContents.openDevTools()
     //require('devtron').install()
   } else {
     //隐藏菜单
