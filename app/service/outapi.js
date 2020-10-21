@@ -2,7 +2,7 @@
 
 const BaseService = require('./base');
 const _ = require('lodash');
-const { md5 } = require('../utils/utils');
+const utils = require('../utils/utils');
 const fs = require('fs');
 
 class OutapiService extends BaseService {
@@ -109,7 +109,10 @@ class OutapiService extends BaseService {
         break;
       case 'allWebSites' :
         result = this.afterAllWebSites(body, result);
-        break;  
+        break;
+      case 'manageUserSite' :
+        result = this.afterManageUserSite(body, result);
+        break;        
     }
 
     return result;
@@ -119,12 +122,12 @@ class OutapiService extends BaseService {
     let data = result.data;
     if (_.isObject(data)) {
       for (let i in data) {
-        let webArr = data[i];
+        let webArr = data[i].list;
         for (let m in webArr) {
           let one = webArr[m];
-          const file =  './app/public/logo/' + one.logo;
-          if (fs.existsSync(file)) {
-            one.img = './logo/' + one.logo;
+          const file =  './app/public/logo/' + one.web_logo.logo;
+          if (utils.fileExist(file)) {
+            one.img = './logo/' + one.web_logo.logo;
           }
         }
       }
@@ -149,14 +152,29 @@ class OutapiService extends BaseService {
     return result;
   }
 
+  async afterManageUserSite(body, result) {
+    let data = result.data.list.data;
+    if (data.length > 0) {
+      for (let i in data) {
+        let one = data[i];
+        const file =  './app/public/logo/' + one.web_logo.logo;
+        if (utils.fileExist(file)) {
+          one.img = './logo/' + one.web_logo.logo;
+        }
+      }
+    }
+
+    return result;
+  }
+
   async afterAllWebSites(body, result) {
     let data = result.data.list.data;
     if (data.length > 0) {
       for (let i in data) {
         let one = data[i];
-        const file =  './app/public/logo/' + one.logo;
-        if (fs.existsSync(file)) {
-          one.img = './logo/' + one.logo;
+        const file =  './app/public/logo/' + one.web_logo.logo;
+        if (utils.fileExist(file)) {
+          one.img = './logo/' + one.web_logo.logo;
         }
       }
     }
