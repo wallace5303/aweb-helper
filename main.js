@@ -42,12 +42,10 @@ app.on('web-contents-created', (e, webContents) => {
 
 async function createWindow () {
   MAIN_WINDOW = new BrowserWindow({
-    width: 1400,
-    height: 800,
-    minWidth: 1400,
-    //maxWidth: 1400,
-    minHeight: 800,
-    //maxHeight: 800,
+    width: 1300,
+    height: 700,
+    minWidth: 800,
+    minHeight: 600,
     webPreferences: {
       //webSecurity: false,
       nodeIntegration: true,
