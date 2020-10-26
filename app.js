@@ -37,7 +37,12 @@ class AppBootHook {
     // Worker is ready, can do some things
     // don't need to block the app boot.
     // 数据库
-    const file = './storage/db.json';
+    const storageDir = path.normalize('./storage/');
+    if (!fs.existsSync(storageDir)) {
+      utils.mkdir(storageDir);
+      utils.chmodPath(storageDir, '777');
+    }
+    const file = storageDir + 'db.json';
     // utils.chmodPath(file);
     const adapter = new FileSync(file);
     const db = lowdb(adapter);
