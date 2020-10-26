@@ -4,6 +4,8 @@
  */
 'use strict';
 global.CODE = require('./app/const/statusCode');
+const fs = require('fs');
+const path = require('path');
 const lowdb = require('lowdb');
 const FileSync = require('lowdb/adapters/FileSync');
 const utils = require('./app/utils/utils');
@@ -68,8 +70,8 @@ class AppBootHook {
 
   async serverDidReady() {
     // Server is listening.
-    const storageFile = './storage';
-    utils.chmodPath(storageFile, '777');
+    // const storageFile = './storage';
+    // utils.chmodPath(storageFile, '777');
   }
 
   async beforeClose() {
