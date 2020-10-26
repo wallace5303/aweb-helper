@@ -14,12 +14,15 @@ exports.outApi = {
   mySites: 'http://www.kaka996.com/api/box/web/mySites',
   messageList: 'http://www.kaka996.com/api/box/message/list',
   messageSend: 'http://www.kaka996.com/api/box/message/send',
-  saveSite: 'http://www.kaka996.com/api/box/web/saveSite',
+  saveMySite: 'http://www.kaka996.com/api/box/web/saveMySite',
+  myTypes: 'http://www.kaka996.com/api/box/web/myTypes',
+  myTypesSave: 'http://www.kaka996.com/api/box/web/myTypesSave',
+  myTypesDel: 'http://www.kaka996.com/api/box/web/myTypesDel',
   feedList: 'http://www.kaka996.com/api/box/feed/list',
   feedSend: 'http://www.kaka996.com/api/box/feed/send',
   dataIncr: 'http://www.kaka996.com/api/box/data/incr',
   manageUserSite: 'http://www.kaka996.com/api/box/manage/userSite',
-  delUserSite: 'http://www.kaka996.com/api/box/web/delSite',
+  delMySite: 'http://www.kaka996.com/api/box/web/delMySite',
 };
 exports.logger = {
   dir: './logs/prod',
