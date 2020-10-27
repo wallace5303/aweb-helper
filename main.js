@@ -1,8 +1,4 @@
-require('update-electron-app')({
-  logger: require('electron-log')
-})
-
-const {app, BrowserWindow, Menu, shell} = require('electron')
+const {app, BrowserWindow, Menu, shell, autoUpdater} = require('electron')
 const path = require('path')
 const glob = require('glob')
 const getPort = require('get-port')
@@ -15,6 +11,12 @@ GLOGGER.transports.file.file = './logs/main.log'
 
 // console.log('path:', app.getAppPath())
 // return;
+
+// auto update
+// const server = 'https://your-demandmenturl.com'
+// const url = `${server}/update/${process.platform}/ ${app.getVersion()}`
+// autoUpdater.setFeedURL({ url })
+
 
 let options = {
   env: 'prod',
