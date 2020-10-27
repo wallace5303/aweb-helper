@@ -127,7 +127,7 @@ class OutapiService extends BaseService {
           let one = webArr[m];
           const file =  './app/public/weblogo/' + one.web_logo.logo;
           if (utils.fileExist(file)) {
-            one.img = './logo/' + one.web_logo.logo;
+            one.img = './weblogo/' + one.web_logo.logo;
           }
         }
       }
@@ -159,7 +159,7 @@ class OutapiService extends BaseService {
         let one = data[i];
         const file =  './app/public/weblogo/' + one.web_logo.logo;
         if (utils.fileExist(file)) {
-          one.img = './logo/' + one.web_logo.logo;
+          one.img = './weblogo/' + one.web_logo.logo;
         }
       }
     }
@@ -174,7 +174,7 @@ class OutapiService extends BaseService {
         let one = data[i];
         const file =  './app/public/weblogo/' + one.web_logo.logo;
         if (utils.fileExist(file)) {
-          one.img = './logo/' + one.web_logo.logo;
+          one.img = './weblogo/' + one.web_logo.logo;
         }
       }
     }
