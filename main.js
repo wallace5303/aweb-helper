@@ -5,6 +5,7 @@ const getPort = require('get-port')
 const eggLauncher = require('./main/lanucher')
 const updater = require("electron-updater");
 const autoUpdater = updater.autoUpdater;
+const package = require('./package')
 
 // glogger
 global.GLOGGER = require('electron-log')
@@ -15,14 +16,16 @@ GLOGGER.transports.file.file = './logs/main.log'
 global.MAIN_WINDOW = null
 
 // auto update
-const server = 'http://resource.kaka996.com/electron/download'
+//const server = 'http://resource.kaka996.com/electron/download'
+GLOGGER.info('current version: ', package.version);
+const server = 'https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master'
 autoUpdater.setFeedURL({
   provider: "generic", // 这里还可以是 github, s3, bintray
   url: server
 });
 function sendStatusToWindow(text) {
   GLOGGER.info(text);
-  // MAIN_WINDOW.webContents.send('message', text);
+  //MAIN_WINDOW.webContents.send('message', text);
 }
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
