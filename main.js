@@ -16,15 +16,13 @@ global.MAIN_WINDOW = null
 
 // auto update
 const server = 'http://resource.kaka996.com/electron/download'
-const url = `${server}/${process.platform}/${app.getVersion()}`
-console.log('url', url)
 autoUpdater.setFeedURL({
   provider: "generic", // 这里还可以是 github, s3, bintray
   url: server
 });
 function sendStatusToWindow(text) {
   GLOGGER.info(text);
-  MAIN_WINDOW.webContents.send('message', text);
+  // MAIN_WINDOW.webContents.send('message', text);
 }
 autoUpdater.on('checking-for-update', () => {
   sendStatusToWindow('Checking for update...');
@@ -46,9 +44,8 @@ autoUpdater.on('download-progress', (progressObj) => {
 })
 autoUpdater.on('update-downloaded', (info) => {
   sendStatusToWindow('Update downloaded');
-  setTimeout(function(){
-    autoUpdater.quitAndInstall();
-  }, 10000)
+  // 退出并更新
+  autoUpdater.quitAndInstall();
 });
 
 // console.log('path:', app.getAppPath())
@@ -110,6 +107,9 @@ async function createWindow () {
     startServer(options)
   }, 100)
 
+  // 检查更新
+  autoUpdater.checkForUpdatesAndNotify();
+
   return MAIN_WINDOW;
 }
 
@@ -129,7 +129,6 @@ async function startServer (options) {
     let url = 'http://localhost:' + options.eggPort
     MAIN_WINDOW.loadURL(url)
 
-    sendStatusToWindow('version:1');
     return
   }
   app.relaunch()
@@ -141,8 +140,6 @@ async function initialize () {
 
   app.whenReady().then(() => {
     createWindow()
-    // 检查更新
-    autoUpdater.checkForUpdatesAndNotify();
     app.on('activate', function () {
       if (BrowserWindow.getAllWindows().length === 0) {
         createWindow()
