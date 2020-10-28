@@ -1,23 +1,58 @@
-const {app, BrowserWindow, Menu, shell, autoUpdater} = require('electron')
+const {app, BrowserWindow, Menu, shell} = require('electron')
 const path = require('path')
 const glob = require('glob')
 const getPort = require('get-port')
 const eggLauncher = require('./main/lanucher')
-global.GLOGGER = require('electron-log')
+const updater = require("electron-updater");
+const autoUpdater = updater.autoUpdater;
 
 // glogger
+global.GLOGGER = require('electron-log')
 GLOGGER.transports.console.level = 'silly'
 GLOGGER.transports.file.file = './logs/main.log'
 
-// console.log('path:', app.getAppPath())
-// return;
+// 主窗口
+global.MAIN_WINDOW = null
 
 // auto update
-// const server = 'https://your-demandmenturl.com'
-// const url = `${server}/update/${process.platform}/ ${app.getVersion()}`
-// autoUpdater.setFeedURL({ url })
+const server = 'http://resource.kaka996.com/electron/download'
+const url = `${server}/${process.platform}/${app.getVersion()}`
+console.log('url', url)
+autoUpdater.setFeedURL({
+  provider: "generic", // 这里还可以是 github, s3, bintray
+  url: server
+});
+function sendStatusToWindow(text) {
+  GLOGGER.info(text);
+  MAIN_WINDOW.webContents.send('message', text);
+}
+autoUpdater.on('checking-for-update', () => {
+  sendStatusToWindow('Checking for update...');
+})
+autoUpdater.on('update-available', (info) => {
+  sendStatusToWindow('Update available.');
+})
+autoUpdater.on('update-not-available', (info) => {
+  sendStatusToWindow('Update not available.');
+})
+autoUpdater.on('error', (err) => {
+  sendStatusToWindow('Error in auto-updater. ' + err);
+})
+autoUpdater.on('download-progress', (progressObj) => {
+  let log_message = "Download speed: " + progressObj.bytesPerSecond;
+  log_message = log_message + ' - Downloaded ' + progressObj.percent + '%';
+  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')';
+  sendStatusToWindow(log_message);
+})
+autoUpdater.on('update-downloaded', (info) => {
+  sendStatusToWindow('Update downloaded');
+  setTimeout(function(){
+    autoUpdater.quitAndInstall();
+  }, 10000)
+});
 
-
+// console.log('path:', app.getAppPath())
+// return;
 let options = {
   env: 'prod',
   eggPort: 7012,
@@ -32,8 +67,6 @@ for (let i = 0; i < process.argv.length; i++) {
 GLOGGER.info('options', options);
 
 if (process.mas) app.setName('box')
-
-global.MAIN_WINDOW = null
 
 app.on('web-contents-created', (e, webContents) => {
     webContents.on('new-window', (event, url) => {
@@ -76,6 +109,8 @@ async function createWindow () {
   setTimeout(function(){
     startServer(options)
   }, 100)
+
+  return MAIN_WINDOW;
 }
 
 async function startServer (options) {
@@ -93,6 +128,8 @@ async function startServer (options) {
     //let url = 'http://localhost:' + options.eggPort + '/index.html'
     let url = 'http://localhost:' + options.eggPort
     MAIN_WINDOW.loadURL(url)
+
+    sendStatusToWindow('version:1');
     return
   }
   app.relaunch()
@@ -104,7 +141,8 @@ async function initialize () {
 
   app.whenReady().then(() => {
     createWindow()
-    
+    // 检查更新
+    autoUpdater.checkForUpdatesAndNotify();
     app.on('activate', function () {
       if (BrowserWindow.getAllWindows().length === 0) {
         createWindow()
