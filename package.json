@@ -1,6 +1,6 @@
 {
   "name": "box",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A personal website collection",
   "main": "main.js",
   "scripts": {
