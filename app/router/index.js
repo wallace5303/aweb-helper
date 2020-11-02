@@ -17,10 +17,7 @@ module.exports = app => {
   // router.get('/html/v1/manage/site', controller.v1.box.manageSiteHtml);
 
   // api
-  router.post('/api/v1/login', controller.v1.entry.login);
-  router.post('/api/v1/register', controller.v1.entry.register);
   router.post('/api/v1/outApi', controller.v1.box.outApi);
-  router.get('/api/v1/box/webSites', controller.v1.box.webSites);
   // router.post('/api/v1/box/init', controller.v1.box.menuInit);
   // router.post('/api/v1/box/sendMessage', controller.v1.box.sendMessage);
   // router.post('/api/v1/box/addsite', controller.v1.box.addSite);

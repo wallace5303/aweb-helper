@@ -59,39 +59,6 @@ class BoxController extends BaseController {
   }
 
   /*
-   * webSites
-   */
-  async webSites() {
-    const self = this;
-    const { app, ctx, service } = this;
-    const query = ctx.query;
-
-    const params = {
-      out_url: 'webSites',
-      method: 'GET',
-      data: query,
-    };
-    const data = await service.outapi.api(params);
-    self.sendData(data);
-  }
-
-  /*
-   * 登录页数据
-   */
-  async stat() {
-    const self = this;
-    const { app, ctx, service } = this;
-    const query = ctx.request.query;
-    const uid = query.uid ? Number(query.uid) : 0;
-
-    const data = {
-      date: '',
-    };
-
-    self.sendSuccess(data, 'ok');
-  }
-
-  /*
    * 错误上报
    */
   async errorReport() {
