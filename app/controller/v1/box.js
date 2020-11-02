@@ -2,7 +2,6 @@
 
 const BaseController = require('../base');
 const _ = require('lodash');
-const moment = require('moment');
 
 class BoxController extends BaseController {
   /*
@@ -86,7 +85,7 @@ class BoxController extends BaseController {
     const uid = query.uid ? Number(query.uid) : 0;
 
     const data = {
-      date: moment().format('X'),
+      date: '',
     };
 
     self.sendSuccess(data, 'ok');
@@ -120,7 +119,7 @@ class BoxController extends BaseController {
     const { app, ctx, service } = this;
 
     const data = {
-      date: moment().format('X'),
+      date: '',
     };
 
     this.sendSuccess(data, 'ok');

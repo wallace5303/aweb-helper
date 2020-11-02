@@ -3,7 +3,6 @@
 const BaseController = require('./base');
 const _ = require('lodash');
 const utils = require('../utils/utils');
-const moment = require('moment');
 
 class TestController extends BaseController {
   async index() {

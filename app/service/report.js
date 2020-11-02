@@ -2,7 +2,6 @@
 
 const BaseService = require('./base');
 const _ = require('lodash');
-const moment = require('moment');
 
 class ReportService extends BaseService {
   /*

@@ -2,7 +2,6 @@
 
 const Controller = require('egg').Controller;
 const _ = require('lodash');
-const moment = require('moment');
 
 class BaseController extends Controller {
   constructor(ctx) {
