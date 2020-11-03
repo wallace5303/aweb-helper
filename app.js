@@ -51,21 +51,6 @@ class AppBootHook {
     if (!db.has('kv').value()) {
       db.set('kv', {}).write();
     }
-    if (!db.has('feed').value()) {
-      db.set('feed', []).write();
-    }
-    if (!db.has('feed_action').value()) {
-      db.set('feed_action', []).write();
-    }
-    if (!db.has('user_web_site').value()) {
-      db.set('user_web_site', []).write();
-    }
-    if (!db.has('user_web_type').value()) {
-      db.set('user_web_type', []).write();
-    }
-    if (!db.has('test').value()) {
-      db.set('test', []).write();
-    }
   }
 
   async serverDidReady() {

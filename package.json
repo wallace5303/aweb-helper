@@ -10,7 +10,10 @@
     "build": "electron-builder -mwl",
     "build-w": "electron-builder -w",
     "build-m": "electron-builder -m",
-    "build-l": "electron-builder -l"
+    "build-l": "electron-builder -l",
+    "web-start": "egg-scripts start --daemon --title=box-web --ignore-stderr --env=prod --workers=1",
+    "web-stop": "egg-scripts stop --title=box-web",
+    "web-dev": "egg-bin dev"
   },
   "build": {
     "productName": "box",
@@ -103,6 +106,7 @@
     "egg": "^2.15.1",
     "egg-cors": "^2.2.0",
     "egg-jwt": "^3.1.6",
+    "egg-scripts": "^2.13.0",
     "egg-view-ejs": "^2.0.0",
     "electron-log": "^4.2.2",
     "electron-store": "^6.0.1",
