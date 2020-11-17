@@ -12,6 +12,7 @@ exports.outApi = {
   saveUser: 'http://www.kaka996.com/api/box/user/save',
   allWebSites: 'http://www.kaka996.com/api/box/web/allSites',
   mySites: 'http://www.kaka996.com/api/box/web/mySites',
+  defaultSites: 'http://www.kaka996.com/api/box/web/defaultSites',
   messageList: 'http://www.kaka996.com/api/box/message/list',
   messageSend: 'http://www.kaka996.com/api/box/message/send',
   saveMySite: 'http://www.kaka996.com/api/box/web/saveMySite',

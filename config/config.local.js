@@ -12,6 +12,7 @@ exports.outApi = {
   saveUser: 'http://kaka996-php.local.com/api/box/user/save',
   allWebSites: 'http://kaka996-php.local.com/api/box/web/allSites',
   mySites: 'http://kaka996-php.local.com/api/box/web/mySites',
+  defaultSites: 'http://kaka996-php.local.com/api/box/web/defaultSites',
   messageList: 'http://kaka996-php.local.com/api/box/message/list',
   messageSend: 'http://kaka996-php.local.com/api/box/message/send',
   saveMySite: 'http://kaka996-php.local.com/api/box/web/saveMySite',
