@@ -24,6 +24,11 @@
     npm install
     npm run start
     ```
+3. 文档
+    [electron-egg](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.2.0.exe)
+
+4. 交流
+    qq群：
 
 ## 欢迎star
 
