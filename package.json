@@ -7,7 +7,6 @@
     "start": "electron .",
     "dev": "electron . --env=local",
     "pack": "electron-builder --dir",
-    "build": "electron-builder -mwl",
     "build-w": "electron-builder -w",
     "build-m": "electron-builder -m",
     "build-l": "electron-builder -l",
@@ -43,7 +42,7 @@
     "publish": [
       {
         "provider": "generic",
-        "url": "http://resource.kaka996.com/electron/download"
+        "url": "https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master"
       }
     ],
     "dmg": {
@@ -103,6 +102,7 @@
     "webstorm-disable-index": "^1.2.0"
   },
   "dependencies": {
+    "dayjs": "^1.9.6",
     "egg": "^2.15.1",
     "egg-cors": "^2.2.0",
     "egg-jwt": "^3.1.6",

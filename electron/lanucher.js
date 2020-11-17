@@ -44,11 +44,7 @@ exports.start = function (argv) {
     const ignoreKeys = [ '_', '$0', 'env', 'daemon', 'stdout', 'stderr', 'timeout', 'ignore-stderr', 'node' ];
     const clusterOptions = stringify(argv, ignoreKeys);
     const options = JSON.parse(clusterOptions);
-    // console.log('options:', {
-    //   argv,
-    //   options
-    // });
-
+    console.log('[lanucher] options:', options)
     return new Promise((resolve, reject) => {
       startCluster(options, function(){
         resolve('success');
@@ -56,16 +52,12 @@ exports.start = function (argv) {
     });
 };
 
-exports.stop = function () {
-    return true;
-};
-
 function stringify(obj, ignore) {
-    const result = {};
-    Object.keys(obj).forEach(key => {
-      if (!ignore.includes(key)) {
-        result[key] = obj[key];
-      }
-    });
-    return JSON.stringify(result);
+  const result = {};
+  Object.keys(obj).forEach(key => {
+    if (!ignore.includes(key)) {
+      result[key] = obj[key];
+    }
+  });
+  return JSON.stringify(result);
 }

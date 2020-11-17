@@ -2,6 +2,8 @@
 
 'use strict';
 const path = require('path');
+const electronEggConfig = require('../electron/config').get('webEgg');
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -25,8 +27,8 @@ module.exports = appInfo => {
 
   config.cluster = {
     listen: {
-      port: 7012,
-      hostname: '0.0.0.0',
+      port: electronEggConfig.port || 7012,
+      hostname: electronEggConfig.hostname || '0.0.0.0',
       // path: '/var/run/egg.sock',
     },
   };
