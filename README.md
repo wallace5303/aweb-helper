@@ -25,10 +25,10 @@
     npm run start
     ```
 3. 文档
-    [electron-egg](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.2.0.exe)
+    [electron-egg](https://gitee.com/wallace5303/electron-egg)
 
 4. 交流
-    qq群：
+    qq群：735532437
 
 ## 欢迎star
 
