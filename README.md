@@ -12,11 +12,11 @@
 
 1. 下载使用
 ![](https://i.loli.net/2020/11/02/ByFDKeY6nmdxGoc.png)
-[windows版](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.2.0.exe)
+体验 [windows版](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.2.0.exe)
 
     mac版：暂无，因为Mac应用需要一些额外的认证&签名，还没申请。
 
-    [官网web版: http://b.kaka996.com/](http://b.kaka996.com/)
+    体验 [web版: http://b.kaka996.com/](http://b.kaka996.com/)
 
 2. 学习&调试
     ```
@@ -30,7 +30,9 @@
 4. 交流
     qq群：735532437
 
-## 新项目，欢迎star
+5. 把一些常用或者重复的功能，做成桌面小工具，给自己或者别人用，确实省了不少时间^_^   
+
+## 欢迎star
 
 
 
