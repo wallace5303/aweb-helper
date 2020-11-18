@@ -1,8 +1,6 @@
 # 网址管理大师
 分享、管理你的网址，隐私空间确保信息安全。
 
-[官网: http://b.kaka996.com/](http://b.kaka996.com/)
-
 ## 特性
 1. 基于[electron-egg](https://gitee.com/wallace5303/electron-egg)框架，可打包成windows版、Mac版、Linux版或者以web网站运行。
 2. 前端使用vue，[项目地址](https://gitee.com/wallace5303/box-ant)。
@@ -17,6 +15,8 @@
 [windows版](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.2.0.exe)
 
     mac版：暂无，因为Mac应用需要一些额外的认证&签名，还没申请。
+
+    [官网web版: http://b.kaka996.com/](http://b.kaka996.com/)
 
 2. 学习&调试
     ```
