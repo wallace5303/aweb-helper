@@ -1,5 +1,5 @@
 # 网址管理大师
-分享、管理你的网址，隐私空间确保信息安全。
+发现、分享、管理你的网址，隐私空间确保信息安全。
 
 ## 特性
 1. 基于[electron-egg](https://gitee.com/wallace5303/electron-egg)框架，可打包成windows版、Mac版、Linux版或者以web网站运行。
@@ -30,7 +30,7 @@
 4. 交流
     qq群：735532437
 
-## 欢迎star
+## 新项目，欢迎star
 
 
 
