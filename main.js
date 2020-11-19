@@ -25,8 +25,8 @@ app.on('web-contents-created', (e, webContents) => {
 
 async function initialize () {
 
-  // 如果前端使用的是vue，那么调试的时候，关闭动态服务端口
-  //await storage.setDynamicPort();
+  // 如果前端使用的是vue，那么调试的时候，关闭动态服务端口，走固定端口就避免每次启动后，需要手动跟换vue的端口了
+  await storage.setDynamicPort();
   
   app.whenReady().then(() => {
     createWindow()

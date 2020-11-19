@@ -21,7 +21,7 @@ const config = {
     webPreferences: {
       //webSecurity: false,
       nodeIntegration: true,
-      preload: path.join(__dirname, 'preload.js')
+      preload: path.join(__dirname, '../preload.js')
     },
     //frame: false,
     //titleBarStyle: 'hidden'
@@ -34,7 +34,7 @@ const config = {
     workers: 1
   },
   autoUpdate: {
-    enable: false,
+    enable: true,
     options: {
       provider: 'generic', // or github, s3, bintray
       url: 'https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master' // resource dir
