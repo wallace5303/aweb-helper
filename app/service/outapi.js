@@ -112,7 +112,10 @@ class OutapiService extends BaseService {
         break;
       case 'manageUserSite' :
         result = this.afterManageUserSite(body, result);
-        break;        
+        break; 
+      case 'defaultSites' :
+        result = this.afterDefaultSites(body, result);
+        break;         
     }
 
     return result;
@@ -175,6 +178,24 @@ class OutapiService extends BaseService {
         const file =  './app/public/weblogo/' + one.web_logo.logo;
         if (utils.fileExist(file)) {
           one.img = './weblogo/' + one.web_logo.logo;
+        }
+      }
+    }
+
+    return result;
+  }
+
+  async afterDefaultSites(body, result) {
+    let data = result.data;
+    if (_.isObject(data)) {
+      for (let i in data) {
+        let webArr = data[i].list;
+        for (let m in webArr) {
+          let one = webArr[m];
+          const file =  './app/public/weblogo/' + one.web_logo.logo;
+          if (utils.fileExist(file)) {
+            one.img = './weblogo/' + one.web_logo.logo;
+          }
         }
       }
     }
