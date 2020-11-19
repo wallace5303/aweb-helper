@@ -4,6 +4,7 @@ const BaseService = require('./base');
 const _ = require('lodash');
 const utils = require('../utils/utils');
 const fs = require('fs');
+const os = require('os');
 
 class OutapiService extends BaseService {
   /*
@@ -128,10 +129,7 @@ class OutapiService extends BaseService {
         let webArr = data[i].list;
         for (let m in webArr) {
           let one = webArr[m];
-          const file =  './app/public/weblogo/' + one.web_logo.logo;
-          if (utils.fileExist(file)) {
-            one.img = './weblogo/' + one.web_logo.logo;
-          }
+          one = this.transLogo(one);
         }
       }
     }
@@ -160,10 +158,7 @@ class OutapiService extends BaseService {
     if (data.length > 0) {
       for (let i in data) {
         let one = data[i];
-        const file =  './app/public/weblogo/' + one.web_logo.logo;
-        if (utils.fileExist(file)) {
-          one.img = './weblogo/' + one.web_logo.logo;
-        }
+        one = this.transLogo(one);
       }
     }
 
@@ -175,10 +170,7 @@ class OutapiService extends BaseService {
     if (data.length > 0) {
       for (let i in data) {
         let one = data[i];
-        const file =  './app/public/weblogo/' + one.web_logo.logo;
-        if (utils.fileExist(file)) {
-          one.img = './weblogo/' + one.web_logo.logo;
-        }
+        one = this.transLogo(one);
       }
     }
 
@@ -192,15 +184,26 @@ class OutapiService extends BaseService {
         let webArr = data[i].list;
         for (let m in webArr) {
           let one = webArr[m];
-          const file =  './app/public/weblogo/' + one.web_logo.logo;
-          if (utils.fileExist(file)) {
-            one.img = './weblogo/' + one.web_logo.logo;
-          }
+          one = this.transLogo(one);
         }
       }
     }
 
     return result;
+  }
+
+  transLogo (webObj) {
+    if (webObj.web_logo) {
+      // 桌面版的走本地
+      if (os.type() !== 'Linux') {
+        const file =  './app/public/weblogo/' + webObj.web_logo.logo;
+        if (utils.fileExist(file)) {
+          webObj.img = './weblogo/' + webObj.web_logo.logo;
+        }
+      }
+    }
+
+    return webObj;
   }
 }
 
