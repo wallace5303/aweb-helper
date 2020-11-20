@@ -24,6 +24,8 @@ exports.outApi = {
   dataIncr: 'http://kaka996-php.local.com/api/box/data/incr',
   manageUserSite: 'http://kaka996-php.local.com/api/box/manage/userSite',
   delMySite: 'http://kaka996-php.local.com/api/box/web/delMySite',
+  webFind: 'http://kaka996-php.local.com/api/box/web/find',
+  saveAllWeb: 'http://kaka996-php.local.com/api/box/web/saveAllWeb',
 };
 exports.logger = {
   dir: './logs/local',

@@ -24,6 +24,8 @@ exports.outApi = {
   dataIncr: 'http://www.kaka996.com/api/box/data/incr',
   manageUserSite: 'http://www.kaka996.com/api/box/manage/userSite',
   delMySite: 'http://www.kaka996.com/api/box/web/delMySite',
+  webFind: 'http://www.kaka996.com/api/box/web/find',
+  saveAllWeb: 'http://www.kaka996.com/api/box/web/saveAllWeb',
 };
 exports.logger = {
   dir: './logs/prod',
