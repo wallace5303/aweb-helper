@@ -26,6 +26,8 @@ exports.outApi = {
   delMySite: 'http://www.kaka996.com/api/box/web/delMySite',
   webFind: 'http://www.kaka996.com/api/box/web/find',
   saveAllWeb: 'http://www.kaka996.com/api/box/web/saveAllWeb',
+  searchAllWeb: 'http://www.kaka996.com/api/box/web/searchAllWeb',
+  hotSearchTags: 'http://www.kaka996.com/api/box/web/hotSearchTags',
 };
 exports.logger = {
   dir: './logs/prod',
