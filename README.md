@@ -3,7 +3,7 @@
 
 [访问: http://b.kaka996.com/](http://b.kaka996.com/)
 
-[windows客户端](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.3.2.exe)
+[windows客户端](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/网站助手_windows_1.3.2.exe)
 
 ## 功能
 注：动图加载慢，访问国内：[gitee](https://gitee.com/wallace5303/website-assistant)
