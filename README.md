@@ -3,9 +3,10 @@
 
 [访问: http://b.kaka996.com/](http://b.kaka996.com/)
 
-[windows客户端](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.3.2.exe)
+[windows客户端](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.3.3.exe)
 
 ## 功能
+注：动图加载慢，访问国内：[gitee](https://gitee.com/wallace5303/website-assistant)
 1. 精准搜索网站（3000+）
     1. 搜技术 JavaScript、php、nodejs等
     ![](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/img/box/js.gif)
@@ -22,6 +23,7 @@
 3. 隐私空间
 4. 发现更多精彩的网站
 5. 每日推荐（开发中）
+6. 持续收录（技术为主）网站，也欢迎提交，共同学习进步
 
 ## 学习&调试
 1. 基于[electron-egg](https://gitee.com/wallace5303/electron-egg)框架，可打包成windows版、Mac版、Linux版或者以web网站运行。
@@ -32,7 +34,7 @@
     # 克隆项目，进入目录 ./box/
     npm install
     npm run start
-    ```
+    ```    
 
 2. 交流
     qq群：735532437
