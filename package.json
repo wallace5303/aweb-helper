@@ -15,7 +15,7 @@
     "web-dev": "egg-bin dev"
   },
   "build": {
-    "productName": "网站助手",
+    "productName": "box",
     "appId": "com.kaka.tools.website-assistant",
     "copyright": "kaka",
     "directories": {
