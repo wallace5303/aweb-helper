@@ -13,7 +13,7 @@ global.MAIN_WINDOW = null
 setup()
 // return
 
-if (process.mas) app.setName('box')
+if (process.mas) app.setName('网站助手')
 
 // Open url with the default browser
 app.on('web-contents-created', (e, webContents) => {

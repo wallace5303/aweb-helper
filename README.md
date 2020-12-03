@@ -1,7 +1,8 @@
 # 网站助手
 工作多年，收藏了太多网站和地址，但各个浏览器对书签的管理功能，没有一个用着舒服的，查找也比较麻烦，于是就自己写了个。
 
-[web版: http://b.kaka996.com/](http://b.kaka996.com/)
+[访问: http://b.kaka996.com/](http://b.kaka996.com/)
+
 [windows客户端](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.3.2.exe)
 
 ## 功能
