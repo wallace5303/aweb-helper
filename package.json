@@ -1,5 +1,5 @@
 {
-  "name": "website-assistant",
+  "name": "aweb-helper",
   "version": "1.3.3",
   "description": "A personal website collection",
   "main": "main.js",
@@ -10,13 +10,13 @@
     "build-w": "electron-builder -w",
     "build-m": "electron-builder -m",
     "build-l": "electron-builder -l",
-    "web-start": "egg-scripts start --daemon --title=website-assistant --ignore-stderr --env=prod --workers=3",
-    "web-stop": "egg-scripts stop --title=website-assistant",
+    "web-start": "egg-scripts start --daemon --title=aweb-helper --ignore-stderr --env=prod --workers=3",
+    "web-stop": "egg-scripts stop --title=aweb-helper",
     "web-dev": "egg-bin dev"
   },
   "build": {
     "productName": "box",
-    "appId": "com.kaka.tools.website-assistant",
+    "appId": "com.kaka.tools.aweb-helper",
     "copyright": "kaka",
     "directories": {
       "output": "out"
@@ -79,7 +79,7 @@
       "icon": "build/icons"
     }
   },
-  "repository": "https://github.com/wallace5303/website-assistant.git",
+  "repository": "https://github.com/wallace5303/aweb-helper.git",
   "keywords": [
     "Electron",
     "tools"
