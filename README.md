@@ -6,7 +6,7 @@
 [windows客户端](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/box_windows_1.3.3.exe)
 
 ## 功能
-注：动图加载慢，访问国内：[gitee](https://gitee.com/wallace5303/website-assistant)
+注：动图加载慢，访问：[gitee](https://gitee.com/wallace5303/aweb-helper)
 1. 精准搜索网站（3000+）
     1. 搜技术 JavaScript、php、nodejs等
     ![](https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master/img/box/js.gif)
