@@ -10,7 +10,7 @@
     "build-w": "electron-builder -w",
     "build-m": "electron-builder -m",
     "build-l": "electron-builder -l",
-    "web-start": "egg-scripts start --daemon --title=aweb-helper --ignore-stderr --env=prod --workers=1",
+    "web-start": "egg-scripts start --daemon --title=aweb-helper --ignore-stderr --env=prod --workers=3",
     "web-stop": "egg-scripts stop --title=aweb-helper",
     "web-dev": "egg-bin dev"
   },
