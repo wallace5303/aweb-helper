@@ -28,6 +28,7 @@ exports.outApi = {
   saveAllWeb: 'http://kaka996-php.local.com/api/box/web/saveAllWeb',
   searchAllWeb: 'http://kaka996-php.local.com/api/box/web/searchAllWeb',
   hotSearchTags: 'http://kaka996-php.local.com/api/box/web/hotSearchTags',
+  todayRecommend: 'http://kaka996-php.local.com/api/box/web/todayRecommend',
 };
 exports.logger = {
   dir: './logs/local',

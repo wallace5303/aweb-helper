@@ -28,6 +28,7 @@ exports.outApi = {
   saveAllWeb: 'http://www.kaka996.com/api/box/web/saveAllWeb',
   searchAllWeb: 'http://www.kaka996.com/api/box/web/searchAllWeb',
   hotSearchTags: 'http://www.kaka996.com/api/box/web/hotSearchTags',
+  todayRecommend: 'http://www.kaka996.com/api/box/web/todayRecommend',
 };
 exports.logger = {
   dir: './logs/prod',
