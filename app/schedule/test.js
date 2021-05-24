@@ -16,11 +16,7 @@ class Test extends Subscription {
     };
   }
 
-  async subscribe() {
-    const { ctx, app, service } = this;
-
-    // service.docker.networkClean();
-  }
+  async subscribe() {}
 }
 
 module.exports = Test;

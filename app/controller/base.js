@@ -1,13 +1,10 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-const _ = require('lodash');
 
 class BaseController extends Controller {
   constructor(ctx) {
     super(ctx);
-    const { lang } = ctx.request.header;
-    this.lang = lang ? lang : 'zh';
   }
 
   /*

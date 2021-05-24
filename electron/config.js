@@ -5,9 +5,26 @@ const dayjs = require('dayjs');
 const storage = require('./storage');
 
 const config = {
+  developmentMode: {
+    default: 'vue',
+    mode: {
+      vue: {
+        hostname: 'localhost',
+        port: 8080
+      },
+      react: {
+        hostname: 'localhost',
+        port: 3000
+      },
+      ejs: {
+        hostname: 'localhost',
+        port: 7068 // The same as the egg port
+      }
+    }
+  },
   log: {
     file: {
-      fileName: path.normalize('./logs/electron-' + dayjs().format('YYYY-MM-DD') + '.log'),
+      fileName: path.normalize(storage.getStorageDir() + 'logs/electron-' + dayjs().format('YYYY-MM-DD') + '.log'),
       level: 'silly', // error, warn, info, verbose, debug, silly
       format: '[{y}-{m}-{d} {h}:{i}:{s}.{ms}] [{level}] {text}',
       maxSize: '1048576' // 1048576 (1mb) by default.
@@ -20,6 +37,7 @@ const config = {
     minHeight: 600,
     webPreferences: {
       //webSecurity: false,
+      contextIsolation: false, // 设置此项为false后，才可在渲染进程中使用electron api
       nodeIntegration: true,
       preload: path.join(__dirname, '../preload.js')
     },
@@ -30,11 +48,13 @@ const config = {
     title: 'box',
     env: 'prod',
     port: 7012,
-    hostname: '0.0.0.0',
+    hostname: 'localhost',
     workers: 1
   },
   autoUpdate: {
-    enable: true,
+    windows: false, // windows可以开启；macOs 需要签名验证
+    macOS: false,
+    Linux: false,
     options: {
       provider: 'generic', // or github, s3, bintray
       url: 'https://kaka996.coding.net/p/resource/d/tx-resource/git/raw/master' // resource dir
@@ -42,8 +62,12 @@ const config = {
   }
 }
 
-exports.get = function (flag = '') {
+exports.get = function (flag = '', env = 'prod') {
   console.log('[config] [get] flag:', flag);
+  if (flag === 'developmentMode') {
+    return config.developmentMode;
+  }
+
   if (flag === 'log') {
     return config.log;
   }
@@ -55,10 +79,10 @@ exports.get = function (flag = '') {
   if (flag === 'webEgg') {
     return config.egg;
   }
-  
+
   if (flag === 'egg') {
     const eggConfig = storage.getEggConfig();
-    if (eggConfig.port) {
+    if (env === 'prod' && eggConfig.port) {
       config.egg.port = eggConfig.port;
     }
     return config.egg;
@@ -67,7 +91,7 @@ exports.get = function (flag = '') {
   if (flag === 'autoUpdate') {
     return config.autoUpdate;
   }
-  
+
   return {};
 };
 

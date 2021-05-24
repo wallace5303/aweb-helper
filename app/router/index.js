@@ -5,23 +5,18 @@
  */
 module.exports = app => {
   const { router, controller } = app;
+  // home
 
   router.get('/', controller.v1.box.index);
+  // hello
+  //router.get('/', controller.v1.home.hello);
 
   // html
-  // router.get('/html/v1/login', controller.v1.entry.loginHtml);
-  // router.get('/html/v1/register', controller.v1.entry.registerHtml);
-  // router.get('/html/v1/home', controller.v1.box.homeHtml);
-  // router.get('/html/v1/chat', controller.v1.box.chatHtml);
-  // router.get('/html/v1/friend', controller.v1.box.friendHtml);
-  // router.get('/html/v1/manage/site', controller.v1.box.manageSiteHtml);
-
-  // api
   router.post('/api/v1/outApi', controller.v1.box.outApi);
-  // router.post('/api/v1/box/init', controller.v1.box.menuInit);
-  // router.post('/api/v1/box/sendMessage', controller.v1.box.sendMessage);
-  // router.post('/api/v1/box/addsite', controller.v1.box.addSite);
+  router.get('/home', controller.v1.home.index);
 
   // 引入其他路由
   require('./user')(app);
+  require('./example')(app);
+  require('./setting')(app);
 };

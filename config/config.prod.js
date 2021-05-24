@@ -1,5 +1,6 @@
 'use strict';
 // 本地环境-配置文件
+const storageDir = require('../electron/storage').getStorageDir();
 
 /*
  * 远程调用
@@ -29,8 +30,9 @@ exports.outApi = {
   searchAllWeb: 'http://www.kaka996.com/api/box/web/searchAllWeb',
   hotSearchTags: 'http://www.kaka996.com/api/box/web/hotSearchTags',
   todayRecommend: 'http://www.kaka996.com/api/box/web/todayRecommend',
+  login: 'http://api.local.com/api/login',
 };
 exports.logger = {
-  dir: './logs/prod',
+  dir: storageDir + 'logs/prod',
 };
 

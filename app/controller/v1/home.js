@@ -5,15 +5,34 @@ const BaseController = require('../base');
 class HomeController extends BaseController {
 
   async index() {
-    const { app, ctx, service } = this;
+    const { ctx } = this;
 
     const data = {
-
+      title: 'hello electron-egg'
     };
 
-    await ctx.render('indexlayui.ejs', data);
+    await ctx.render('index.ejs', data);
   }
   
+  async hello() {
+    const { ctx } = this;
+
+    const data = {
+      title: 'hello'
+    };
+
+    this.sendSuccess(data);
+  }
+
+  async helloPage() {
+    const { ctx } = this;
+
+    const data = {
+      title: 'hello'
+    };
+
+    await ctx.render('hello.ejs', data);
+  }
 }
 
 module.exports = HomeController;
