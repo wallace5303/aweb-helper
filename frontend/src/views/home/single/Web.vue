@@ -19,7 +19,7 @@
           搜一搜
         </a-button>
       </a-input-search>
-      <!-- <a-input-search
+      <a-input-search
         placeholder=""
         style="width: 272px; margin-right:10px;"
         v-model="inputText"
@@ -27,7 +27,7 @@
         <a-button slot="enterButton">
           百度一下
         </a-button>
-      </a-input-search> -->
+      </a-input-search>
       <!-- <router-link :to="{ name: 'homeManageWebSite' }">
         <a-button type="default" style="margin-right:10px;">
           添加
