@@ -46,7 +46,6 @@ const config = {
   },
   egg: {
     title: 'box',
-    env: 'prod',
     port: 7012,
     hostname: 'localhost',
     workers: 1
