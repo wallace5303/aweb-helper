@@ -32,28 +32,14 @@ class BoxController extends BaseController {
       "data":[],
       "timestamp":0
     }
-    const beforeDealRes = await service.outapi.beforeDeal(body);
-    if (!beforeDealRes.next) {
-      // console.log("beforeDealRes:", beforeDealRes);
-      result.message = beforeDealRes.message;
-      result.code = beforeDealRes.code;
-      result.data = beforeDealRes.data;
-      self.sendData(result);
-      return
-    }
 
     const params = {
       out_url: body.out_url,
       method: body.method,
       data: body.data,
     };
-    // 如果可以异步
-    if (beforeDealRes.async) {
-      service.outapi.api(params);
-    } else {
-      result = await service.outapi.api(params);
-    }
-    result = await service.outapi.afterDeal(body, result);
+    result = await service.outapi.api(params);
+    //result = await service.outapi.afterDeal(body, result);
     
     self.sendData(result);
   }

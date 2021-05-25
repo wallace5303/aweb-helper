@@ -133,22 +133,6 @@ class OutapiService extends BaseService {
         }
       }
     }
-    const key = 'mySites_category_' + body.data.category + '_' + body.data.uid;
-    this.service.lowdb.setKv(key, result.data);
-
-    return result;
-  }
-
-  async afterSaveMySite(body, result) {
-    const key = 'mySites_category_' + body.data.category + '_' + body.data.uid;
-    this.service.lowdb.delKv(key);
-
-    return result;
-  }
-
-  async afterDelMySite(body, result) {
-    const key = 'mySites_category_' + body.data.category + '_' + body.data.uid;
-    this.service.lowdb.delKv(key);
 
     return result;
   }
