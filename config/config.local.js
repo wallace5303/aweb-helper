@@ -30,7 +30,6 @@ exports.outApi = {
   searchAllWeb: 'http://kaka996-php.local.com/api/box/web/searchAllWeb',
   hotSearchTags: 'http://kaka996-php.local.com/api/box/web/hotSearchTags',
   todayRecommend: 'http://kaka996-php.local.com/api/box/web/todayRecommend',
-  login: 'http://local.com/api/login',
 };
 exports.logger = {
   dir: storageDir + 'logs/local',

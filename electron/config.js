@@ -18,7 +18,7 @@ const config = {
       },
       ejs: {
         hostname: 'localhost',
-        port: 7068 // The same as the egg port
+        port: 7012 // The same as the egg port
       }
     }
   },

@@ -27,7 +27,7 @@ for (let i = 0; i < process.argv.length; i++) {
 const eggConfig = electronConfig.get('egg', ENV)
 eggConfig.env = ENV
 
-if (process.mas) app.setName('electron-egg')
+if (process.mas) app.setName('aweb-helper')
 
 async function initialize () {
   app.whenReady().then(() => {

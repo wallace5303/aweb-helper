@@ -14,7 +14,7 @@
     "build-l": "electron-builder -l",
     "web-start": "egg-scripts start --daemon --title=aweb-helper --ignore-stderr --env=prod --workers=3",
     "web-stop": "egg-scripts stop --title=aweb-helper",
-    "web-dev": "egg-bin dev"
+    "web-dev": "egg-bin dev",
     "rd": "node ./tools/replace_dist --dist_dir=./frontend/dist"
   },
   "build": {

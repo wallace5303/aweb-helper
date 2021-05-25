@@ -3,7 +3,7 @@ import storage from 'store'
 import { ACCESS_TOKEN, USER_INFO } from '@/store/mutation-types'
 
 const mainApi = {
-  outApi: '/v1/outApi'
+  outApi: '/api/v1/outApi'
 }
 
 /**

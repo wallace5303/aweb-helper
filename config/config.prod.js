@@ -30,7 +30,6 @@ exports.outApi = {
   searchAllWeb: 'http://www.kaka996.com/api/box/web/searchAllWeb',
   hotSearchTags: 'http://www.kaka996.com/api/box/web/hotSearchTags',
   todayRecommend: 'http://www.kaka996.com/api/box/web/todayRecommend',
-  login: 'http://api.local.com/api/login',
 };
 exports.logger = {
   dir: storageDir + 'logs/prod',
