@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["fail"],{"8cdb":function(e,n,t){"use strict";t.r(n);var a=function(){var e=this,n=e.$createElement,t=e._self._c||n;return t("div",[e._v(" 404 page ")])},c=[],i={name:"404"},l=i,r=t("2877"),s=Object(r["a"])(l,a,c,!1,null,"52088166",null);n["default"]=s.exports}}]);
